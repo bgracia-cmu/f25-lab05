@@ -21,12 +21,23 @@ In this lab, you will become a refactoring agent who detects anti-patterns and p
 In the appendix, we have provided a non-comprehensive list of anti-patterns. You might want to read and refer to when doing the tasks. 
 
 ### Task 1
+
 Frogger is trying to cross the road, which she holds as a "Road" object in her fields. The Road object holds a boolean array indicating which steps are “occupied”; Frogger is on a specific square (“position”) and provides a move method (either forward or backward).
 
 In the frogger folder, navigate to the Frogger.java and Road.java classes and take a look at the code. What is it doing and which anti-pattern is present? Try to fix the design by modifying the two classes.
 
 > Hint: 
-> + What information should Frogger hold? Does it do things that appear unusual for a Frogger?
+
+What is it doing? Which anti-pattern is present?
+- Feature envy: in Frogger.isOccupied/Frogger.isValid (using features of Road class)
+- god class: Frogger.move should delegate to Road class for movement calculation. Frogger.recordMyself should be handled
+by another class outside Frogger
+
+What information should Frogger hold? 
+- Its position
+
+Does it do things that appear unusual for a Frogger?
+- Yes
 
 
 ### Task 2
